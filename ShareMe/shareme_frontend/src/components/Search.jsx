@@ -1,11 +1,11 @@
 import React from 'react'
 
-const UserProfile = () => {
+const Search = () => {
   return (
     <div>
-      User
+      Search
     </div>
   )
 }
 
-export default UserProfile
+export default Search
