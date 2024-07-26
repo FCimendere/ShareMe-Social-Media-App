@@ -8,6 +8,7 @@ import { client } from '../client';
 import logo from '../assets/Logo.png';
 import Pins from './Pins';
 import { userQuery } from '../utils/data';
+import { fetchUser } from '../utils/fetchUser';
 
 const Home = () => {
 
@@ -16,19 +17,20 @@ const Home = () => {
   const scrollRef = useRef(null);
 
 
-  const userInfo = localStorage.getItem('user')!== 'undefined' ? JSON.parse(localStorage.getItem('user')) : localStorage.clear();
-  
-  useEffect(()=> {
-    const query = userQuery(userInfo?.sub) // googleId info needed for this.
-    client.fetch(query)
-      .then((data) => {
-        setUser(data[0]);
-      })
-  },[]);
+  // const userInfo = localStorage.getItem('user')!== 'undefined' ? JSON.parse(localStorage.getItem('user')) : localStorage.clear();
+  const userInfo = fetchUser();
+
 
   useEffect(() => {
-    scrollRef.current.scrollTo(0, 0)
+    const query = userQuery(userInfo?.sub);
+    client.fetch(query).then((data) => {
+      setUser(data[0]);
+    });
   }, []);
+
+  useEffect(() => {
+    scrollRef.current.scrollTo(0, 0);
+  });
   
   return (
     <div className='flex bg-gray-50 md:flex-row flex-col h-screen transaction-height duration-75 ease-out'> 
