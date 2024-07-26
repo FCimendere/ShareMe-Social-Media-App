@@ -112,7 +112,8 @@ const Pin = ({ pin }) => {
                         >
                         {' '}
                             <BsFillArrowUpRightCircleFill />
-                            {destination.length > 20 ? destination.slice(8,20) : destination.slice(8)}
+                            {/* {destination.length > 20 ? destination.slice(8,20) : destination.slice(8)} */}
+                            {destination.length > 20 && destination.split('/')[2].slice(0,8)}
                         </a>
                     )}
                     { postedBy?._id === user?.sub && (
