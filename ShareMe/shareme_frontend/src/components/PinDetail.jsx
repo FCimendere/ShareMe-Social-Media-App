@@ -87,7 +87,8 @@ const PinDetail = ({ user }) => {
             <a 
             href={pinDetail.destination} target="_blank" rel="noreferrer"
             >
-              {pinDetail.destination?.slice(8)}
+              {pinDetail.destination.length > 20 && pinDetail.destination.split('/')[2].slice(0,14)}
+              {/* {pinDetail.destination?.slice(8)} */}
             </a>
           </div>
           <div>
