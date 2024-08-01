@@ -67,7 +67,7 @@ const PinDetail = ({ user }) => {
           <div className="flex justify-center items-center md:items-start flex-initial">
             <img 
             src={(pinDetail?.image && urlFor(pinDetail?.image).url())}
-            className='rounded-t-3xl rounded-b-lg'
+            className='rounded-t-3xl rounded-b-3xl w-2/4'
             alt='user-post'/>
           </div>
         <div className="w-full p-5 flex-1 xl:min-w-620">
